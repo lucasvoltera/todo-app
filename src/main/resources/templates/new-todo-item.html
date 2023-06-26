@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}" />
+    <title>New ToDo Item</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-2">
+                <p><a class="btn btn-outline-success" href="/">
+                    <i class="bi bi-arrow-left-square-fill"></i> Back</a>
+                </p>
+            </div>
+            <div class="col-6">
+                <h2>Add a new Todo Item</h2>
+                <form action="#" th:action="@{/todo}" th:object="${todoItem}" method="POST">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input class="form-control" type="text" th:field="*{description}" id="description" placeholder="Description">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="itemCategory">Category</label>
+                        <input class="form-control" type="text" th:field="*{itemCategory}" id="itemCategory" placeholder="Category">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input class="form-control" type="number" th:field="*{quantity}" id="quantity" placeholder="Quantity">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="storeName">Store Name</label>
+                        <input class="form-control" type="text" th:field="*{storeName}" id="storeName" placeholder="Store Name">
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-success">
+                        <i class="bi bi-plus-square-fill"></i> Add Todo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"></script>
+</body>
+</html>
